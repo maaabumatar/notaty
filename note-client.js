@@ -1,4 +1,4 @@
-const baseURL = "https://maaabumatar-github-io.onrender.com";
+const baseURL = "https://notaty-server-github-io.onrender.com";
 
 async function addNote(noteData) {
   const response = await fetch(`${baseURL}/notes`, {

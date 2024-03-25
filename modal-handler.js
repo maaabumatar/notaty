@@ -29,13 +29,17 @@ function saveNewNote() {
         });
       } else {
         response.text().then((error) => {
-          document.getElementById("addError").innerHTML = error;
+          const errorObj = JSON.parse(error);
+          const errorMessage = errorObj.message || errorObj._message; // Check both places where the message might be stored
+          document.getElementById("addError").innerHTML = errorMessage;
         });
       }
     })
     .catch((error) => {
       console.log(error);
-      document.getElementById("addError").innerHTML = error;
+      const errorObj = JSON.parse(error);
+      const errorMessage = errorObj.message || errorObj._message; // Check both places where the message might be stored
+      document.getElementById("addError").innerHTML = errorMessage;
     });
 }
 
@@ -83,11 +87,15 @@ function saveEditNote() {
         updateNotesTable(_idStr);
       } else {
         response.text().then((error) => {
-          document.getElementById("editError").innerHTML = error;
+          const errorObj = JSON.parse(error);
+          const errorMessage = errorObj.message || errorObj._message; // Check both places where the message might be stored
+          document.getElementById("editError").innerHTML = errorMessage;
         });
       }
     })
     .catch((error) => {
-      document.getElementById("editError").innerHTML = error;
+      const errorObj = JSON.parse(error);
+      const errorMessage = errorObj.message || errorObj._message; // Check both places where the message might be stored
+      document.getElementById("editError").innerHTML = errorMessage;
     });
 }
